@@ -4,7 +4,7 @@ clustersecretstore:
   azurekv:
     # tenantid -- Azure Tenant ID
     tenantid: "changeme"
-    # vaulturl -- Azure Keyvault URL
+    # vaulturl -- Azure Target Keyvault URL
     vaulturl: "changeme"
     # identityid -- ManagedIdentity ClientID
     identityid: "changeme"
