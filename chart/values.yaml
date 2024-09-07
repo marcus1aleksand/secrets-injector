@@ -2,9 +2,12 @@ clustersecretstore:
   name: cluster-azure-backend
   providerType: azurekv
   azurekv:
-    tenantid: "changeme" # Azure Tenant ID
-    vaulturl: "changeme" # Azure Keyvault URL
-    identityid: "changeme"  #ManagedIdentity ClientID
+    # tenantid -- Azure Tenant ID
+    tenantid: "changeme"
+    # vaulturl -- Azure Keyvault URL
+    vaulturl: "changeme"
+    # identityid -- ManagedIdentity ClientID
+    identityid: "changeme"
   #name: hcp-vault-backend
   #providerType: vault
   #vault:
@@ -33,11 +36,17 @@ externalsecrets:
   #  namespacesecretname: operator-test # Secret name that will be deployed in the target namespace
   #  namespacesecretkeyname: password # Name that will be given to the key that will be associated to the valued pulled from Azure Keyvault target secret
   #  keyvaultsecretname: operator-test # Name of the target secret in Azure Keyvault that will be pulled into K8S target namespace
-  -
-    secret: "changeme" # Name of the cluster external secret resource
+  - # secret -- Name of the cluster external secret resource
+    secret: "changeme"
+    # argocd -- boolean to indicate if the secret is a cluster credential used by ArgoCD to manage the cluster
     argocd: false
-    multivalue: true #bollean to indicate if the secret in Azure Keyvault contains multiple keys
-    clustersecstore: cluster-azure-backend # Name of the Cluster Secret Store Configured in line2 of this file
-    namespace: "" # Namespace where the secret will be deployed and managed
-    namespacesecretname: "" # Secret name that will be deployed in the target namespace
-    keyvaultsecretname: "" # Name of the target secret in Azure Keyvault that will be pulled into K8S target namespace
+    # multivalue -- bollean to indicate if the secret in Azure Keyvault contains multiple keys
+    multivalue: true
+    # clustersecstore -- Name of the Cluster Secret Store Configured in line2 of this file
+    clustersecstore: cluster-azure-backend
+    # namespace -- Namespace where the secret will be deployed and managed
+    namespace: "changeme"
+    # namespacesecretname -- Secret name that will be deployed in the target namespace
+    namespacesecretname: "changeme"
+    # keyvaultsecretname -- Name of the target secret in Azure Keyvault that will be pulled into K8S target namespace
+    keyvaultsecretname: "changeme"

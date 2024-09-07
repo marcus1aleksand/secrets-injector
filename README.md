@@ -27,7 +27,7 @@ Secrets Injector for external-secrets operator
 	</thead>
 	<tbody>
 		<tr>
-			<td id="clustersecretstore--azurekv--identityid"><a href="./values.yaml#L7">clustersecretstore.azurekv.identityid</a></td>
+			<td id="clustersecretstore--azurekv--identityid"><a href="./values.yaml#L10">clustersecretstore.azurekv.identityid</a></td>
 			<td>
 string
 </td>
@@ -41,7 +41,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="clustersecretstore--azurekv--tenantid"><a href="./values.yaml#L5">clustersecretstore.azurekv.tenantid</a></td>
+			<td id="clustersecretstore--azurekv--tenantid"><a href="./values.yaml#L6">clustersecretstore.azurekv.tenantid</a></td>
 			<td>
 string
 </td>
@@ -55,7 +55,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="clustersecretstore--azurekv--vaulturl"><a href="./values.yaml#L6">clustersecretstore.azurekv.vaulturl</a></td>
+			<td id="clustersecretstore--azurekv--vaulturl"><a href="./values.yaml#L8">clustersecretstore.azurekv.vaulturl</a></td>
 			<td>
 string
 </td>
@@ -97,7 +97,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="externalsecrets[0]--argocd"><a href="./values.yaml#L38">externalsecrets[0].argocd</a></td>
+			<td id="externalsecrets[0]--argocd"><a href="./values.yaml#L42">externalsecrets[0].argocd</a></td>
 			<td>
 bool
 </td>
@@ -111,7 +111,7 @@ false
 			<td></td>
 		</tr>
 		<tr>
-			<td id="externalsecrets[0]--clustersecstore"><a href="./values.yaml#L40">externalsecrets[0].clustersecstore</a></td>
+			<td id="externalsecrets[0]--clustersecstore"><a href="./values.yaml#L46">externalsecrets[0].clustersecstore</a></td>
 			<td>
 string
 </td>
@@ -125,21 +125,21 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="externalsecrets[0]--keyvaultsecretname"><a href="./values.yaml#L43">externalsecrets[0].keyvaultsecretname</a></td>
+			<td id="externalsecrets[0]--keyvaultsecretname"><a href="./values.yaml#L52">externalsecrets[0].keyvaultsecretname</a></td>
 			<td>
 string
 </td>
 			<td>
 				<div style="max-width: 300px;">
 <pre lang="json">
-""
+"changeme"
 </pre>
 </div>
 			</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td id="externalsecrets[0]--multivalue"><a href="./values.yaml#L39">externalsecrets[0].multivalue</a></td>
+			<td id="externalsecrets[0]--multivalue"><a href="./values.yaml#L44">externalsecrets[0].multivalue</a></td>
 			<td>
 bool
 </td>
@@ -153,35 +153,35 @@ true
 			<td></td>
 		</tr>
 		<tr>
-			<td id="externalsecrets[0]--namespace"><a href="./values.yaml#L41">externalsecrets[0].namespace</a></td>
+			<td id="externalsecrets[0]--namespace"><a href="./values.yaml#L48">externalsecrets[0].namespace</a></td>
 			<td>
 string
 </td>
 			<td>
 				<div style="max-width: 300px;">
 <pre lang="json">
-""
+"changeme"
 </pre>
 </div>
 			</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td id="externalsecrets[0]--namespacesecretname"><a href="./values.yaml#L42">externalsecrets[0].namespacesecretname</a></td>
+			<td id="externalsecrets[0]--namespacesecretname"><a href="./values.yaml#L50">externalsecrets[0].namespacesecretname</a></td>
 			<td>
 string
 </td>
 			<td>
 				<div style="max-width: 300px;">
 <pre lang="json">
-""
+"changeme"
 </pre>
 </div>
 			</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td id="externalsecrets[0]--secret"><a href="./values.yaml#L37">externalsecrets[0].secret</a></td>
+			<td id="externalsecrets[0]--secret"><a href="./values.yaml#L40">externalsecrets[0].secret</a></td>
 			<td>
 string
 </td>
