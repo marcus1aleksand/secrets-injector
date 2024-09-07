@@ -6,7 +6,7 @@ clustersecretstore:
     tenantid: "changeme"
     # vaulturl -- Azure Target Keyvault URL
     vaulturl: "changeme"
-    # identityid -- ManagedIdentity ClientID
+    # identityid -- Azure Managed Identity ClientID
     identityid: "changeme"
   #name: hcp-vault-backend
   #providerType: vault
