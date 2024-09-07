@@ -2,8 +2,8 @@ clustersecretstore:
   name: cluster-azure-backend
   providerType: azurekv
   azurekv:
-    tenantid: "" # Azure Tenant ID
-    vaulturl: "" # Azure Keyvault URL
+    tenantid: "changeme" # Azure Tenant ID
+    vaulturl: "changeme" # Azure Keyvault URL
     identityid: "changeme"  #ManagedIdentity ClientID
   #name: hcp-vault-backend
   #providerType: vault
