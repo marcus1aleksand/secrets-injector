@@ -21,7 +21,7 @@ jobs:
           curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
       - name: Run helm lint
-        working-directory: charts
+        working-directory: chart
         run: |
           helm lint .
 
