@@ -26,7 +26,7 @@ jobs:
         minor_pattern: "feat:"
         bump_each_commit_patch_pattern: "fix:"
         version_format: "${major}.${minor}.${patch}"
-        change_path: ./operator
+        change_path: ./chart
         bump_each_commit: false
         search_commit_body: true
         user_format_type: "json"
