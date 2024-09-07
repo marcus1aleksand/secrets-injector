@@ -1,0 +1,7 @@
+apiVersion: v2
+description: Secrets Injector for external-secrets operator
+maintainers:
+- email: marcus1aleksand@gmail.com
+  name: Marcus Aleksandravicius
+name: secrets-injector
+version: 1.0.0
