@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "enabled": true,
+      "schedule": [
+        "after 9pm on saturday"
+      ],
+      "matchManagers": [
+        "helmv3",
+        "dockerfile"
+      ],
+      "additionalBranchPrefix": "{{packageFileDir}}-",
+      "groupName": "all-updates"
+    }
+  ],
+  "helmv3": {
+    "enabled": true
+  },
+  "dockerfile": {
+    "enabled": true
+  }
+}
