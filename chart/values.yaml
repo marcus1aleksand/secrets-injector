@@ -40,7 +40,7 @@ externalsecrets:
     secret: "changeme"
     # argocd -- boolean to indicate if the secret is a cluster credential used by ArgoCD to manage the cluster
     argocd: false
-    # multivalue -- bollean to indicate if the secret in Azure Keyvault contains multiple keys
+    # multivalue -- boolean to indicate if the secret in Azure Keyvault contains multiple keys
     multivalue: true
     # clustersecstore -- Name of the Cluster Secret Store Configured in line2 of this file
     clustersecstore: cluster-azure-backend
