@@ -1,6 +1,6 @@
 # 🔐 Secrets Injector
 
-[![Downloads](https://img.shields.io/github/downloads/marcus1aleksand/secrets-injector/total?style=for-the-badge&logo=github&label=Downloads)](https://github.com/marcus1aleksand/secrets-injector/releases)
+[![Downloads](https://img.shields.io/badge/Downloads-104k+-blue?style=for-the-badge&logo=github&label=Downloads)](https://github.com/marcus1aleksand/secrets-injector/pkgs/container/helm-charts%2Fsecrets-injector)
 
 **Declaratively manage external secrets across your entire Kubernetes cluster with a single Helm chart.**
 
