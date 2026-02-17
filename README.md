@@ -1,238 +1,373 @@
-# secrets-injector
+<div align="center">
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square)
+# 🔐 Secrets Injector
 
-The secrets-injector is an add-on tool to the external-secrets operator (https://external-secrets.io/).
+**Declaratively manage external secrets across your entire Kubernetes cluster with a single Helm chart.**
 
-The main goal of the secrets-injector tool is to facilitate the creation and management of external-secrets resources in a Kubernetes cluster. It allows users to create external-secrets resources in a declarative way, by defining a variety of secrets with just a few lines of code.
+[![Helm Version](https://img.shields.io/badge/Helm_Chart-v1.1.0-blue?style=for-the-badge&logo=helm)](https://github.com/marcus1aleksand/secrets-injector/releases)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-1.28+-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubernetes.io)
+[![External Secrets](https://img.shields.io/badge/External_Secrets-v1-6C3483?style=for-the-badge)](https://external-secrets.io)
 
-## Helm-chart Description
+[![Lint & Scan](https://img.shields.io/github/actions/workflow/status/marcus1aleksand/secrets-injector/linting_scanning.yml?branch=main&label=Lint%20%26%20Scan&style=flat-square)](https://github.com/marcus1aleksand/secrets-injector/actions/workflows/linting_scanning.yml)
+[![Release](https://img.shields.io/github/actions/workflow/status/marcus1aleksand/secrets-injector/update_semantic_version-dynamic.yml?branch=main&label=Release&style=flat-square)](https://github.com/marcus1aleksand/secrets-injector/actions/workflows/update_semantic_version-dynamic.yml)
 
-Secrets Injector for external-secrets operator
+---
 
-## Maintainers
+*An add-on Helm chart for the [External Secrets Operator](https://external-secrets.io/) that lets you define ClusterSecretStores, ClusterExternalSecrets, and every secret type you need — ArgoCD clusters, repo credentials, TLS certificates, multivalue secrets, and more — all from a single `values.yaml`.*
 
-| Name | Email | Url |
-| ---- | ------ | --- |
-| Marcus Aleksandravicius | <marcus1aleksand@gmail.com> |  |
+[📖 Documentation](https://marcus1aleksand.github.io/secrets-injector/) · [🚀 Getting Started](#-quick-start) · [💡 Examples](#-secret-type-examples)
 
-## Values
+</div>
 
-<table height="400px" >
-	<thead>
-		<th>Key</th>
-		<th>Type</th>
-		<th>Default</th>
-		<th>Description</th>
-	</thead>
-	<tbody>
-		<tr>
-			<td id="clustersecretstore--azurekv--identityid"><a href="./values.yaml#L10">clustersecretstore.azurekv.identityid</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"changeme"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="clustersecretstore--azurekv--tenantid"><a href="./values.yaml#L6">clustersecretstore.azurekv.tenantid</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"changeme"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="clustersecretstore--azurekv--vaulturl"><a href="./values.yaml#L8">clustersecretstore.azurekv.vaulturl</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"changeme"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="clustersecretstore--name"><a href="./values.yaml#L2">clustersecretstore.name</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"cluster-azure-backend"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="clustersecretstore--providerType"><a href="./values.yaml#L3">clustersecretstore.providerType</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"azurekv"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="externalsecrets[0]--argocd"><a href="./values.yaml#L42">externalsecrets[0].argocd</a></td>
-			<td>
-bool
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-false
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="externalsecrets[0]--clustersecstore"><a href="./values.yaml#L46">externalsecrets[0].clustersecstore</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"cluster-azure-backend"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="externalsecrets[0]--keyvaultsecretname"><a href="./values.yaml#L52">externalsecrets[0].keyvaultsecretname</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"changeme"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="externalsecrets[0]--multivalue"><a href="./values.yaml#L44">externalsecrets[0].multivalue</a></td>
-			<td>
-bool
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-true
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="externalsecrets[0]--namespace"><a href="./values.yaml#L48">externalsecrets[0].namespace</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"changeme"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="externalsecrets[0]--namespacesecretname"><a href="./values.yaml#L50">externalsecrets[0].namespacesecretname</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"changeme"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="externalsecrets[0]--secret"><a href="./values.yaml#L40">externalsecrets[0].secret</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"changeme"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-	</tbody>
-</table>
+## 🏗️ Architecture
 
-## Installation
+The Secrets Injector sits on top of the External Secrets Operator, providing a declarative abstraction layer that simplifies secret management at scale.
 
-Install the secrets-injector chart:
+```mermaid
+graph TB
+    subgraph Providers["☁️ Cloud Secret Providers"]
+        AKV["🔑 Azure Key Vault"]
+        ASM["🔑 AWS Secrets Manager"]
+        HCV["🔑 HashiCorp Vault"]
+    end
+
+    subgraph Injector["📦 Secrets Injector Helm Chart"]
+        VALUES["values.yaml<br/>Single source of truth"]
+        CSS["ClusterSecretStore<br/>Provider connection"]
+        CES["ClusterExternalSecret<br/>Per-secret definition"]
+    end
+
+    subgraph ESO["⚙️ External Secrets Operator"]
+        CTRL["ESO Controller<br/>Reconciliation loop"]
+        ES["ExternalSecret<br/>Namespace-scoped"]
+    end
+
+    subgraph Namespaces["☸️ Kubernetes Namespaces"]
+        NS1["📁 namespace-a<br/>🔒 K8s Secret"]
+        NS2["📁 namespace-b<br/>🔒 K8s Secret"]
+        NS3["📁 argocd<br/>🔒 Cluster / Repo Creds"]
+    end
+
+    VALUES -->|"helm install"| CSS
+    VALUES -->|"helm install"| CES
+    CSS -->|"authenticates"| AKV
+    CSS -->|"authenticates"| ASM
+    CSS -->|"authenticates"| HCV
+    CES -->|"creates"| ES
+    ES -->|"managed by"| CTRL
+    CTRL -->|"fetches secrets"| Providers
+    CTRL -->|"creates/syncs"| NS1
+    CTRL -->|"creates/syncs"| NS2
+    CTRL -->|"creates/syncs"| NS3
+
+    style Providers fill:#e8f5e9,stroke:#4CAF50,stroke-width:2px
+    style Injector fill:#e3f2fd,stroke:#2196F3,stroke-width:2px
+    style ESO fill:#fff3e0,stroke:#FF9800,stroke-width:2px
+    style Namespaces fill:#fce4ec,stroke:#E91E63,stroke-width:2px
+```
+
+## ✨ Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 🌐 **Multi-Cloud** | Azure Key Vault, AWS Secrets Manager, HashiCorp Vault |
+| 📦 **Single Chart** | Define all secrets across all namespaces in one `values.yaml` |
+| 🔄 **Auto-Sync** | Secrets refresh automatically (configurable interval) |
+| 🏷️ **ArgoCD Integration** | Native support for cluster secrets and repo credentials |
+| 🔒 **TLS Secrets** | First-class `kubernetes.io/tls` secret support |
+| 📊 **Multivalue** | Extract all keys from a single cloud secret automatically |
+| 🏗️ **Cluster-Wide** | ClusterExternalSecrets deploy to any namespace via selectors |
+| 🛡️ **Security Scanned** | Checkov IaC scanning on every PR |
+| 📋 **Custom Labels** | Attach labels to generated secrets (Grafana contact points, etc.) |
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Kubernetes cluster (v1.28+)
+- [External Secrets Operator](https://external-secrets.io/) installed
+- Access to a supported secret provider (Azure KV, AWS SM, or Vault)
+
+### Installation
 
 ```bash
-helm install secrets-injector oci://ghcr.io/marcus1aleksand/helm-charts/secrets-injector
+# Install from GHCR OCI registry
+helm install secrets-injector \
+  oci://ghcr.io/marcus1aleksand/helm-charts/secrets-injector \
+  -f values.yaml
 ```
 
-## Security Checks
+### Minimal Configuration
 
-Security checks in this repository are performed by a pipeline that executes Checkov whenever a Pull Request is created against the main branch.
+```yaml
+# values.yaml
+clustersecretstore:
+  name: my-azure-backend
+  providerType: azurekv
+  azurekv:
+    tenantid: "your-tenant-id"
+    vaulturl: "https://my-vault.vault.azure.net"
+    identityid: "your-managed-identity-client-id"
 
-[Checkov](https://github.com/bridgecrewio/checkov?tab=readme-ov-file) is a static code analysis tool for infrastructure as code (IaC) and also a software composition analysis (SCA) tool for images and open source packages.
-
-It scans cloud infrastructure provisioned using Terraform, Terraform plan, Cloudformation, AWS SAM, Kubernetes, Helm charts, Kustomize, Dockerfile, Serverless, Bicep, OpenAPI or ARM Templates and detects security and compliance misconfigurations using graph-based scanning.
-
-It performs Software Composition Analysis (SCA) scanning which is a scan of open source packages and images for Common Vulnerabilities and Exposures (CVEs).
-
-Checkov also powers Prisma Cloud Application Security, the developer-first platform that codifies and streamlines cloud security throughout the development lifecycle. Prisma Cloud identifies, fixes, and prevents misconfigurations in cloud resources and infrastructure-as-code files.
-
-## Validation Hooks
-
-This repository has pre-commit hooks configuration within it. This is utilized to run a set of validations locally such as automatically fixing formatting issues before the code is pushed to a remote branch.git s
-
-In order to have the pre-commit working in your local IDE, after cloning this repository locally, run the following commands:
-
-1. Install pre-commit locally
-```
-brew install pre-commit
+externalsecrets:
+  - secret: my-app-secret
+    multivalue: true
+    clustersecstore: my-azure-backend
+    namespace: my-app
+    namespacesecretname: app-credentials
+    keyvaultsecretname: my-app-credentials
 ```
 
-2. After cloning this repository and having pre-commit installed in your locall computer, run the following command via CLI in the repository directory:
-```
-pre-commit install
-```
-Done! now whenever a commit command is executed, your code terraform code will be fully validated and documentation will be automatically updated before it is pushed to the remote repository's branch.
+## 🔑 Cloud Provider Setup
 
-----------------------------------------------
-Autogenerated from chart metadata using [helm-docs v1.14.2](https://github.com/norwoodj/helm-docs/releases/v1.14.2)
+<details>
+<summary><strong>Azure Key Vault (Managed Identity)</strong></summary>
+
+```yaml
+clustersecretstore:
+  name: cluster-azure-backend
+  providerType: azurekv
+  azurekv:
+    tenantid: "00000000-0000-0000-0000-000000000000"
+    vaulturl: "https://my-keyvault.vault.azure.net"
+    identityid: "00000000-0000-0000-0000-000000000000"
+```
+
+</details>
+
+<details>
+<summary><strong>Azure Key Vault (Service Principal)</strong></summary>
+
+```yaml
+clustersecretstore:
+  name: cluster-azure-backend
+  providerType: azurekv
+  azurekv:
+    tenantid: "00000000-0000-0000-0000-000000000000"
+    vaulturl: "https://my-keyvault.vault.azure.net"
+    clientid:
+      name: azure-secret-sp
+      namespace: eso
+      id: ClientID
+    clientsecret:
+      name: azure-secret-sp
+      namespace: eso
+      id: ClientSecret
+```
+
+</details>
+
+<details>
+<summary><strong>AWS Secrets Manager (IRSA)</strong></summary>
+
+```yaml
+clustersecretstore:
+  name: cluster-aws-backend
+  providerType: aws
+  aws:
+    region: "us-east-1"
+    auth:
+      serviceAccountName: "external-secrets-sa"
+      serviceAccountNamespace: "external-secrets"
+```
+
+</details>
+
+<details>
+<summary><strong>HashiCorp Vault</strong></summary>
+
+```yaml
+clustersecretstore:
+  name: hcp-vault-backend
+  providerType: vault
+  vault:
+    server: "https://vault.example.com"
+    path: "secret"
+    version: "v2"
+    auth:
+      tokenName: "vault-token"
+      tokenNamespace: "external-secrets"
+      tokenKey: "vault-token"
+```
+
+</details>
+
+## 💡 Secret Type Examples
+
+### Multivalue Secret (extract all keys)
+
+```yaml
+externalsecrets:
+  - secret: app-config
+    multivalue: true
+    clustersecstore: cluster-azure-backend
+    namespace: my-app
+    namespacesecretname: app-config
+    keyvaultsecretname: my-app-config
+```
+
+### Single Value Secret
+
+```yaml
+externalsecrets:
+  - secret: db-password
+    clustersecstore: cluster-azure-backend
+    namespace: my-app
+    namespacesecretname: db-credentials
+    namespacesecretkeyname: password
+    keyvaultsecretname: database-password
+```
+
+### Single Property from JSON Secret
+
+```yaml
+externalsecrets:
+  - secret: api-key
+    clustersecstore: cluster-azure-backend
+    namespace: my-app
+    namespacesecretname: api-credentials
+    namespacesecretkeyname: key
+    keyvaultsecretname: api-config
+    property: apiKey
+```
+
+### TLS Certificate
+
+```yaml
+externalsecrets:
+  - secret: wildcard-tls
+    type: "kubernetes.io/tls"
+    clustersecstore: cluster-azure-backend
+    namespace: ingress-nginx
+    namespacesecretname: wildcard-cert
+    namespacesecretkeynamecrt: tls.crt
+    namespacesecretkeynamekey: tls.key
+    keyvaultsecretname: wildcard-cert
+```
+
+### ArgoCD Cluster Secret (Certificate Auth)
+
+```yaml
+externalsecrets:
+  - secret: prod-cluster
+    argocd: true
+    clustersecstore: cluster-azure-backend
+    namespace: argocd
+    namespacesecretname: prod-cluster-secret
+    keyvaultsecretname: argocd-prod-cluster
+```
+
+### ArgoCD Cluster Secret (Bearer Token Auth)
+
+```yaml
+externalsecrets:
+  - secret: staging-cluster
+    argocd: true
+    argocdBearerToken: true
+    clustersecstore: cluster-azure-backend
+    namespace: argocd
+    namespacesecretname: staging-cluster-secret
+    keyvaultsecretname: argocd-staging-cluster
+```
+
+### ArgoCD Repository Credentials
+
+```yaml
+externalsecrets:
+  - secret: github-repo-creds
+    argocdRepoCreds: true
+    clustersecstore: cluster-azure-backend
+    namespace: argocd
+    namespacesecretname: github-repo-creds
+    keyvaultsecretname: argocd-github-credentials
+```
+
+### Grafana Contact Point
+
+```yaml
+externalsecrets:
+  - secret: grafana-contact-points
+    contactpoint: true
+    clustersecstore: cluster-azure-backend
+    namespace: monitoring
+    namespacesecretname: grafana-contact-points
+    keyvaultsecretname: grafana-contactpoints-yaml
+```
+
+### Secret with Custom Labels
+
+```yaml
+externalsecrets:
+  - secret: labeled-secret
+    multivalue: true
+    clustersecstore: cluster-azure-backend
+    namespace: my-app
+    namespacesecretname: my-labeled-secret
+    keyvaultsecretname: my-secret
+    labels:
+      app: my-app
+      environment: production
+```
+
+### Non-Opaque Secret with Custom Type
+
+```yaml
+externalsecrets:
+  - secret: docker-registry
+    type: "kubernetes.io/dockerconfigjson"
+    clustersecstore: cluster-azure-backend
+    namespace: my-app
+    namespacesecretname: registry-creds
+    namespacesecretkeyname: .dockerconfigjson
+    keyvaultsecretname: docker-registry-config
+```
+
+## 📋 Values Reference
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `clustersecretstore.name` | string | `cluster-azure-backend` | Name of the ClusterSecretStore resource |
+| `clustersecretstore.providerType` | string | `azurekv` | Provider type: `azurekv`, `aws`, or `vault` |
+| `clustersecretstore.azurekv.tenantid` | string | — | Azure AD Tenant ID |
+| `clustersecretstore.azurekv.vaulturl` | string | — | Azure Key Vault URL |
+| `clustersecretstore.azurekv.identityid` | string | — | Managed Identity Client ID |
+| `clustersecretstore.aws.region` | string | `us-east-1` | AWS region |
+| `clustersecretstore.aws.auth.serviceAccountName` | string | — | K8s SA with IRSA annotation |
+| `clustersecretstore.vault.server` | string | — | Vault server URL |
+| `clustersecretstore.vault.path` | string | — | Vault secrets engine path |
+| `clustersecretstore.vault.version` | string | `v2` | KV engine version |
+| `externalsecrets[].secret` | string | — | ClusterExternalSecret resource name |
+| `externalsecrets[].clustersecstore` | string | — | Target ClusterSecretStore name |
+| `externalsecrets[].namespace` | string | — | Target namespace for the secret |
+| `externalsecrets[].namespacesecretname` | string | — | Name of the K8s Secret created |
+| `externalsecrets[].keyvaultsecretname` | string | — | Remote secret key name |
+| `externalsecrets[].multivalue` | bool | `false` | Extract all keys from remote secret |
+| `externalsecrets[].argocd` | bool | `false` | Create as ArgoCD cluster secret |
+| `externalsecrets[].argocdBearerToken` | bool | `false` | Use bearer token auth for ArgoCD |
+| `externalsecrets[].argocdRepoCreds` | bool | `false` | Create as ArgoCD repo credentials |
+| `externalsecrets[].type` | string | — | K8s secret type (e.g., `kubernetes.io/tls`) |
+| `externalsecrets[].contactpoint` | bool | `false` | Create as Grafana contact point |
+| `externalsecrets[].labels` | map | — | Custom labels for the generated secret |
+| `externalsecrets[].property` | string | — | Extract specific JSON property |
+| `externalsecrets[].namespaceSelector` | object | — | Custom namespace selector (overrides `namespace`) |
+
+## 🛡️ Security
+
+- **Checkov scanning** runs on every PR for IaC security and compliance
+- **Pre-commit hooks** for local validation before push
+- **Helm lint** validates chart structure on every PR
+
+## 📚 Documentation
+
+Full documentation is available at **[marcus1aleksand.github.io/secrets-injector](https://marcus1aleksand.github.io/secrets-injector/)**
+
+## 👤 Maintainers
+
+| Name | Email |
+|------|-------|
+| Marcus Aleksandravicius | marcus1aleksand@gmail.com |
+
+## 📄 License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.

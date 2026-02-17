@@ -1,15 +1,92 @@
-site_name: "Azure Hub and Spoke DNS Operator"
+site_name: "Secrets Injector"
+site_url: https://marcus1aleksand.github.io/secrets-injector/
+site_description: "Declarative external secrets management for Kubernetes"
+site_author: Marcus Aleksandravicius
 
-repo_url: https://github.com/marcus1aleksand/hub-and-spoke-dns-operator
+repo_url: https://github.com/marcus1aleksand/secrets-injector
+repo_name: marcus1aleksand/secrets-injector
+edit_uri: edit/main/docs/
 
 nav:
-  - Docs: index.md
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Architecture: architecture.md
+  - Secret Types:
+    - Overview: secret-types/index.md
+    - Multivalue Secrets: secret-types/multivalue.md
+    - Single Value Secrets: secret-types/single-value.md
+    - TLS Certificates: secret-types/tls.md
+    - ArgoCD Cluster Secrets: secret-types/argocd-clusters.md
+    - ArgoCD Repo Credentials: secret-types/argocd-repo-creds.md
+    - Grafana Contact Points: secret-types/grafana.md
+    - Custom Labels & Types: secret-types/custom.md
+  - Cloud Providers:
+    - Azure Key Vault: providers/azure.md
+    - AWS Secrets Manager: providers/aws.md
+    - HashiCorp Vault: providers/vault.md
+  - Configuration Reference: configuration.md
+  - Examples: examples.md
+  - Troubleshooting: troubleshooting.md
 
 theme:
   name: material
   icon:
-    repo: fontawesome/brands/git-alt
+    repo: fontawesome/brands/github
+    logo: material/shield-lock
+  favicon: material/shield-lock
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
 
 plugins:
-  - mermaid2
   - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/marcus1aleksand
+  generator: false
