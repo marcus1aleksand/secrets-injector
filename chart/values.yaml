@@ -8,6 +8,16 @@ clustersecretstore:
     vaulturl: "changeme"
     # identityid -- Azure Managed Identity ClientID
     identityid: "changeme"
+  # AWS Secrets Manager configuration
+  #providerType: aws
+  aws:
+    # region -- AWS region for Secrets Manager
+    region: "us-east-1"
+    auth:
+      # serviceAccountName -- K8s service account with IRSA annotation
+      serviceAccountName: "external-secrets-sa"
+      # serviceAccountNamespace -- Namespace of the service account
+      serviceAccountNamespace: "external-secrets"
   #name: hcp-vault-backend
   #providerType: vault
   #vault:
