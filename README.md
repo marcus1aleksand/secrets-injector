@@ -4,6 +4,7 @@
 
 **Declaratively manage external secrets across your entire Kubernetes cluster with a single Helm chart.**
 
+[![Downloads](https://img.shields.io/github/downloads/marcus1aleksand/secrets-injector/total?style=for-the-badge&logo=github&label=Downloads)](https://github.com/marcus1aleksand/secrets-injector/releases)
 [![Helm Version](https://img.shields.io/badge/Helm_Chart-v1.1.0-blue?style=for-the-badge&logo=helm)](https://github.com/marcus1aleksand/secrets-injector/releases)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-1.28+-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubernetes.io)
