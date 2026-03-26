@@ -1,4 +1,5 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
   ],
@@ -10,7 +11,9 @@
       ],
       "matchManagers": [
         "helmv3",
-        "dockerfile"
+        "dockerfile",
+        "github-actions",
+        "pre-commit"
       ],
       "additionalBranchPrefix": "{{packageFileDir}}-",
       "groupName": "all-updates"
