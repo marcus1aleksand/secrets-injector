@@ -48,7 +48,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Create Production Release
-      uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@v2
       id: release
       with:
         tag: ${{ steps.tag_version.outputs.new_tag }}
@@ -69,7 +69,7 @@ jobs:
         helm push *.tgz oci://ghcr.io/${{ github.repository_owner }}/helm-charts
 
     - name: Update Base Chart version
-      uses: fjogeleit/yaml-update-action@main
+      uses: fjogeleit/yaml-update-action@v0.18.0
       with:
         valueFile: 'chart/Chart.yaml'
         repository: 'marcus1aleksand/secrets-injector'
