@@ -81,5 +81,6 @@ jobs:
         message: 'Update Helm Chart version to ${{ steps.tag_version.outputs.new_tag }}'
         changes: |
           {
-            "version": "${{ steps.tag_version.outputs.new_tag }}"
+            "version": "${{ steps.tag_version.outputs.new_tag }}",
+            "appVersion": "${{ steps.tag_version.outputs.new_tag }}"
           }
