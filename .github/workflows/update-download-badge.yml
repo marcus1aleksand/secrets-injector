@@ -13,25 +13,23 @@ jobs:
   update-badge:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Get download count from GitHub Packages API
         id: downloads
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Fetch all versions and sum download counts
+          # Sum the download counts of every published version. gh applies the
+          # jq filter to each page separately, so the per-page numbers are
+          # summed here. Summing inside jq would leave TOTAL multi-line and
+          # the integer comparisons below would fail.
           TOTAL=$(gh api \
             '/users/${{ github.repository_owner }}/packages/container/helm-charts%2Fsecrets-injector/versions' \
             --paginate \
-            --jq '[.[].metadata.container.tags | length] | length' 2>/dev/null || echo "0")
-
-          # Alternative: scrape the package page for total downloads
-          # The versions endpoint returns download_count per version if available
-          TOTAL=$(gh api \
-            '/users/${{ github.repository_owner }}/packages/container/helm-charts%2Fsecrets-injector/versions' \
-            --paginate \
-            --jq 'map(.metadata.download_count // 0) | add' 2>/dev/null || echo "0")
+            --jq '.[] | (.metadata.download_count // 0)' 2>/dev/null \
+            | awk '{ sum += $1 } END { print sum + 0 }')
+          TOTAL=${TOTAL:-0}
 
           # If API doesn't return download_count in metadata, sum from HTML
           if [ "$TOTAL" = "0" ] || [ "$TOTAL" = "null" ]; then
